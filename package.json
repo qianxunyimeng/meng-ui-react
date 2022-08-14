@@ -29,6 +29,19 @@
     "extends": [
       "react-app",
       "react-app/jest"
+    ],
+    "rules": {
+      "additional-rule": "off",
+      "testing-library/no-render-in-setup": ["warn", {"allowTestingFrameworkSetupHook": "beforeAll"}],
+      "testing-library/no-node-access": ["warn", {"allowContainerFirstChild": true}]
+    },
+    "overrides": [
+      {
+        "files": ["**/*.ts?(x)"],
+        "rules": {
+          "additional-typescript-only-rule": "off"
+        }
+      }
     ]
   },
   "browserslist": {
