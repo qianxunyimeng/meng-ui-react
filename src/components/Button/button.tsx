@@ -18,9 +18,13 @@ export type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 interface BaseButtonProps {
   className?: string;
+  /** 是否禁用 */
   disabled?: boolean;
+  /** 按钮尺寸 */
   size?: ButtonSize;
+  /** 按钮类型 */
   btnType?: ButtonType;
+  /** btnType = "link" 时才会生效，跳转地址 */
   href?: string;
   children?: React.ReactNode;
 }
@@ -31,7 +35,16 @@ type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElemen
 //partial 所有属性可选
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps> 
 
-const Button: React.FC<ButtonProps> = (props) => { 
+/**
+ * 按钮常用于页面交互
+ * ### 引用方法
+ * ```
+   import {Button} from "meng-ui-react"
+  ```
+ * @param props 
+ * @returns 
+ */
+export const Button: React.FC<ButtonProps> = (props) => { 
   const {
     btnType,
     className,
