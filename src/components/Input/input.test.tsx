@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container,testing-library/render-result-naming-convention,testing-library/no-render-in-setup,testing-library/no-wait-for-multiple-assertions*/
+
 import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 
@@ -12,7 +14,7 @@ describe('test Input component', () => {
     const wrapper = render(<Input {...defaultProps}/>)
     const testNode = wrapper.getByPlaceholderText('test-input') as HTMLInputElement
     expect(testNode).toBeInTheDocument()
-    expect(testNode).toHaveClass('viking-input-inner')
+    expect(testNode).toHaveClass('mx-input-inner')
     fireEvent.change(testNode, { target: { value: '23' } })
     expect(defaultProps.onChange).toHaveBeenCalled()
     expect(testNode.value).toEqual('23')
@@ -24,12 +26,12 @@ describe('test Input component', () => {
   })
   it('should render different input sizes on size property', () => {
     const wrapper = render(<Input placeholder="sizes" size="lg" />)
-    const testContainer = wrapper.container.querySelector('.viking-input-wrapper')
+    const testContainer = wrapper.container.querySelector('.mx-input-wrapper')
     expect(testContainer).toHaveClass('input-size-lg')
   })
   it('should render prepand and append element on prepand/append property', () => {
     const {queryByText, container } = render(<Input placeholder="pend" prepend="https://" append=".com"/>)
-    const testContainer = container.querySelector('.viking-input-wrapper')
+    const testContainer = container.querySelector('.mx-input-wrapper')
     expect(testContainer).toHaveClass('input-group input-group-append input-group-prepend')
     expect(queryByText('https://')).toBeInTheDocument()
     expect(queryByText('.com')).toBeInTheDocument()

@@ -39,8 +39,8 @@ export const BMultipleSelect = (args:any) => (
     <Select.Option value="nihao" />
     <Select.Option value="nihao2" />
     <Select.Option value="nihao3" />
-    <Select.Option value="viking" />
-    <Select.Option value="viking2" />
+    <Select.Option value="mx" />
+    <Select.Option value="mx2" />
   </Select>
 )
 BMultipleSelect.storyName = '支持多选的 Select'

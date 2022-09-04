@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container,testing-library/render-result-naming-convention,testing-library/no-render-in-setup,testing-library/no-wait-for-multiple-assertions*/
+
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
 import axios from 'axios'
@@ -25,7 +27,7 @@ const testFile = new File(['xyz'], 'test.png', {type: 'image/png'})
 describe('test upload component', () => {
   beforeEach(() => {
     wrapper = render(<Upload {...testProps}>Click to upload</Upload>)
-    fileInput = wrapper.container.querySelector('.viking-file-input') as HTMLInputElement
+    fileInput = wrapper.container.querySelector('.mx-file-input') as HTMLInputElement
     uploadArea = wrapper.queryByText('Click to upload') as HTMLElement
   })
   it('upload process should works fine', async () => {

@@ -29,7 +29,7 @@ export interface AutoCompleteProps extends Omit<InputProps, 'onSelect' | 'onChan
  * ### 引用方法
  * 
  * ~~~js
- * import { AutoComplete } from 'vikingship'
+ * import { AutoComplete } from 'meng-ui-react'
  * ~~~
  */
 export const AutoComplete: FC<AutoCompleteProps> = (props) => {

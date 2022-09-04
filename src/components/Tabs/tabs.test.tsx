@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container,testing-library/render-result-naming-convention,testing-library/no-render-in-setup,testing-library/no-wait-for-multiple-assertions*/
+
 import React from 'react'
 import { render, fireEvent, RenderResult } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'

@@ -1,6 +1,8 @@
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container,testing-library/render-result-naming-convention,testing-library/no-render-in-setup,testing-library/no-wait-for-multiple-assertions*/
+
 import React from "react";
 import { render,screen,fireEvent } from "@testing-library/react"
-import Button, { ButtonProps, ButtonSize, ButtonType } from "./button"
+import Button, { ButtonProps } from "./button"
 
 
 const defaultProps = {

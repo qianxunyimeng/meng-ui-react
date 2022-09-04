@@ -19,7 +19,7 @@ export interface TabsProps {
  * ### 引用方法
  * 
  * ~~~js
- * import { Tabs } from 'vikingship'
+ * import { Tabs } from 'meng-ui-react'
  * ~~~
  */
 export const Tabs: FC<TabsProps> = (props) => {
@@ -74,7 +74,7 @@ export const Tabs: FC<TabsProps> = (props) => {
       <ul className={navClass}>
         {renderNavLinks()}
       </ul>
-      <div className="viking-tabs-content">
+      <div className="mx-tabs-content">
         {renderContent()}
       </div>
     </div>

@@ -1,4 +1,5 @@
-/* eslint-disable testing-library/await-async-utils */
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container,testing-library/render-result-naming-convention,testing-library/no-render-in-setup,testing-library/no-wait-for-multiple-assertions*/
+
 import React from 'react'
 import { render, fireEvent, screen, waitFor } from '@testing-library/react'
 
@@ -9,7 +10,7 @@ import Button from '../Button'
 
 const testProps: FormProps = {
   name: 'test-form',
-  initialValues: { name: 'viking', password: '12345', confirmPwd: '23456' },
+  initialValues: { name: 'mx', password: '12345', confirmPwd: '23456' },
   onFinish: jest.fn(),
   onFinishFailed: jest.fn()
 }
@@ -56,7 +57,7 @@ describe('testing Form component', () => {
       </Form>
     )
     const { getByDisplayValue, getByText } = screen
-    nameInput = getByDisplayValue('viking')
+    nameInput = getByDisplayValue('mx')
     pwdInput = getByDisplayValue('12345')
     conPwdInput = getByDisplayValue('23456')
     submitButton = getByText('Log in')

@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import Upload, { UploadFile } from "./upload";
-import Button from "../Button/button"
+//import Button from "../Button/button"
 
 const defaultFileList: UploadFile[] = [
   {uid: "101",size: 1234,name: "hello.md",status:"uploading",percent:30},

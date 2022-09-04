@@ -21,6 +21,10 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "node_modules/lodash-es/**/*.js"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

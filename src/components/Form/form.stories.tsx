@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container,testing-library/render-result-naming-convention,testing-library/no-render-in-setup,testing-library/no-wait-for-multiple-assertions,@typescript-eslint/no-unused-vars,jsx-a11y/anchor-is-valid*/
+
 import React, { useRef } from 'react'
 import { ComponentMeta } from '@storybook/react'
 import Form, { IFormRef,FormProps } from './form'
@@ -55,7 +57,7 @@ export const ABasicForm = (args:FormProps) => {
       <Item label='密码' name='password' rules={[{type: 'string',required: true, min: 3, max: 8 }]}>
         <Input type="password"/>
       </Item>
-      <div className='viking-form-submit-area'>
+      <div className='mx-form-submit-area'>
         <Button type="submit" btnType='primary'>登陆</Button>
       </div>
     </Form>
@@ -100,7 +102,7 @@ export const BRegForm = (args:FormProps) => {
         </Item>
         <span className="agree-text">注册即代表你同意<a href='#'>用户协议</a></span>
       </div>
-      <div className='viking-form-submit-area'>
+      <div className='mx-form-submit-area'>
         <Button type="submit" btnType='primary'>登陆</Button>
       </div>
     </Form>
@@ -116,7 +118,7 @@ export const CFullForm = (args:FormProps) => {
     
   }
   return (
-    <Form initialValues={{ username: 'viking', agreement: false }} {...args} ref={ formRef }>
+    <Form initialValues={{ username: 'mx', agreement: false }} {...args} ref={ formRef }>
       { ({ isValid, isSubmitting }) => (
       <>
       <Item label='用户名' name='username' rules={[{ type: 'email', required: true }]}>
@@ -139,7 +141,7 @@ export const CFullForm = (args:FormProps) => {
         </Item>
         <span className="agree-text">注册即代表你同意<a href='#'>用户协议</a></span>
       </div>
-      <div className='viking-form-submit-area'>
+      <div className='mx-form-submit-area'>
         <Button type="submit" btnType='primary'>登陆 {isSubmitting ? '验证中' : '验证完毕'} {isValid ? '通过😄' : '没通过😢'} </Button>
         <Button type="button" onClick={resetAll}>重置</Button>
       </div>

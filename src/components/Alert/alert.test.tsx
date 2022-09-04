@@ -1,3 +1,5 @@
+/* eslint-disable testing-library/await-async-utils,testing-library/prefer-screen-queries,testing-library/prefer-presence-queries,testing-library/no-node-access,testing-library/no-container*/
+
 import React from 'react'
 import { config } from 'react-transition-group'
 import { render, fireEvent } from '@testing-library/react'
