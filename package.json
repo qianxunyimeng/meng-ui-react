@@ -43,8 +43,8 @@
     "build-es": "rollup --config rollup/rollup.esm.config.js",
     "build-umd": "rollup --config rollup/rollup.umd.config.js",
     "build-css": "sass ./src/styles/index.scss ./dist/index.css",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public",
+    "docs:dev": "start-storybook -p 6006 -s public",
+    "docs:build": "build-storybook -s public",
     "prepare": "husky install",
     "prepublish": "npm run test:nowatch && npm run lint && npm run build"
   },
