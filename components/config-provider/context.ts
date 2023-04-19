@@ -7,7 +7,7 @@ import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/in
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 import type { SizeType } from './SizeContext';
 
-export const defaultIconPrefixCls = 'anticon';
+export const defaultIconPrefixCls = 'mxicon';
 
 export interface Theme {
   primaryColor?: string;
@@ -73,7 +73,7 @@ export interface ConfigConsumerProps {
 const defaultGetPrefixCls = (suffixCls?: string, customizePrefixCls?: string) => {
   if (customizePrefixCls) return customizePrefixCls;
 
-  return suffixCls ? `ant-${suffixCls}` : 'ant';
+  return suffixCls ? `mx-${suffixCls}` : 'mx';
 };
 
 // zombieJ: 🚨 Do not pass `defaultRenderEmpty` here since it will cause circular dependency.

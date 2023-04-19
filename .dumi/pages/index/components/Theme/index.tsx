@@ -12,7 +12,6 @@ import {
   Breadcrumb,
   Button,
   Card,
-  ConfigProvider,
   Form,
   Layout,
   Menu,
@@ -21,6 +20,7 @@ import {
   theme,
   Typography,
 } from 'antd';
+import { ConfigProvider } from 'meng-ui-react';
 import useLocale from '../../../../hooks/useLocale';
 import useSiteToken from '../../../../hooks/useSiteToken';
 import type { THEME } from './ThemePicker';

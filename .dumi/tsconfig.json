@@ -7,8 +7,8 @@
     "baseUrl": "../",
     "paths": {
       "@@/*": [".dumi/tmp/*"],
-      "antd": ["components/index.tsx"],
-      "antd/es/*": ["components/*"],
+      "meng-ui-react": ["components/index.tsx"],
+      "meng-ui-react/es/*": ["components/*"],
       "dumi/theme/*": [".dumi/theme/*"]
     }
   },

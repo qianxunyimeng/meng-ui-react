@@ -1,4 +1,5 @@
 import { defineConfig } from 'dumi';
+import path from 'path';
 import rehypeAntd from './.dumi/rehypeAntd';
 import remarkAntd from './.dumi/remarkAntd';
 import { version } from './package.json';
@@ -6,7 +7,7 @@ import { version } from './package.json';
 export default defineConfig({
   conventionRoutes: {
     // to avoid generate routes for .dumi/pages/index/components/xx
-    exclude: [new RegExp('index/components/')],
+    exclude: [new RegExp('index/components/'), 'components'],
   },
   base: '/meng-ui-react/',
   publicPath: '/meng-ui-react/',
@@ -32,12 +33,12 @@ export default defineConfig({
   define: {
     antdReproduceVersion: version,
   },
-  // alias: {
-  //   'antd/lib': path.join(__dirname, 'components'),
-  //   'antd/es': path.join(__dirname, 'components'),
-  //   'antd/locale': path.join(__dirname, 'components/locale'),
-  //   antd: require.resolve('./.dumi/theme/antd.js'),
-  // },
+  alias: {
+    'meng-ui-react/lib': path.join(__dirname, 'components'),
+    'meng-ui-react/es': path.join(__dirname, 'components'),
+    'meng-ui-react/locale': path.join(__dirname, 'components/locale'),
+    'meng-ui-react': require.resolve('./.dumi/theme/antd.js'),
+  },
   extraRehypePlugins: [rehypeAntd],
   extraRemarkPlugins: [remarkAntd],
   extraBabelPresets: ['@emotion/babel-preset-css-prop'],

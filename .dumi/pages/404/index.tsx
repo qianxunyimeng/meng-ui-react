@@ -1,5 +1,6 @@
 import { HomeOutlined } from '@ant-design/icons';
-import { Button, Result } from 'antd';
+import { Result } from 'antd';
+import { Button } from 'meng-ui-react';
 import { Link, useLocation } from 'dumi';
 import React, { useEffect } from 'react';
 import * as utils from '../../theme/utils';

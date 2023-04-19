@@ -1,33 +1,24 @@
-import {
-  CheckOutlined,
-  SnippetsOutlined,
-} from '@ant-design/icons';
+import { CheckOutlined, SnippetsOutlined } from '@ant-design/icons';
 import type { Project } from '@stackblitz/sdk';
-// import stackblitzSdk from '@stackblitz/sdk';
-import {  Badge, Space, Tooltip } from 'antd';
+import { Alert, Badge, Space, Tooltip } from 'antd';
 import classNames from 'classnames';
 import { FormattedMessage, useSiteData } from 'dumi';
 import toReactElement from 'jsonml-to-react-element';
 import JsonML from 'jsonml.js/lib/utils';
-// import LZString from 'lz-string';
 import Prism from 'prismjs';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
-// import useLocation from '../../../hooks/useLocation';
+import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
-// import CodePenIcon from '../../common/CodePenIcon';
 import CodePreview from '../../common/CodePreview';
-// import CodeSandboxIcon from '../../common/CodeSandboxIcon';
-// import EditButton from '../../common/EditButton';
+import EditButton from '../../common/EditButton';
 import ExternalLinkIcon from '../../common/ExternalLinkIcon';
-// import RiddleIcon from '../../common/RiddleIcon';
 import type { SiteContextProps } from '../../slots/SiteContext';
 import SiteContext from '../../slots/SiteContext';
-// import { ping } from '../../utils';
 import type { AntdPreviewerProps } from '.';
 
-// const { ErrorBoundary } = Alert;
+const { ErrorBoundary } = Alert;
 
 function toReactComponent(jsonML: any) {
   return toReactElement(jsonML, [
@@ -51,40 +42,12 @@ function toReactComponent(jsonML: any) {
   ]);
 }
 
-// function compress(string: string): string {
-//   return LZString.compressToBase64(string)
-//     .replace(/\+/g, '-') // Convert '+' to '-'
-//     .replace(/\//g, '_') // Convert '/' to '_'
-//     .replace(/=+$/, ''); // Remove ending '='
-// }
-
 const track = ({ type, demo }: { type: string; demo: string }) => {
   if (!window.gtag) {
     return;
   }
   window.gtag('event', 'demo', { event_category: type, event_label: demo });
 };
-
-// let pingDeferrer: PromiseLike<boolean>;
-
-// function useShowRiddleButton() {
-//   const [showRiddleButton, setShowRiddleButton] = useState(false);
-
-//   useEffect(() => {
-//     pingDeferrer ??= new Promise<boolean>((resolve) => {
-//       ping((status) => {
-//         if (status !== 'timeout' && status !== 'error') {
-//           return resolve(true);
-//         }
-
-//         return resolve(false);
-//       });
-//     });
-//     pingDeferrer.then(setShowRiddleButton);
-//   }, []);
-
-//   return showRiddleButton;
-// }
 
 const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const {
@@ -106,7 +69,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   } = props;
 
   const { pkg } = useSiteData();
-  // const location = useLocation();
+  const location = useLocation();
 
   const entryCode = asset.dependencies['index.tsx'].value;
   // const showRiddleButton = useShowRiddleButton();
@@ -122,7 +85,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const [codeType, setCodeType] = useState<string>('tsx');
   const { theme } = useContext<SiteContextProps>(SiteContext);
 
-  const { hash} = location;
+  const { hash } = location;
   // const docsOnlineUrl = `https://ant.design${pathname}${search}#${asset.id}`;
 
   const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
@@ -250,53 +213,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   dependencies.react = '^18.0.0';
   dependencies['react-dom'] = '^18.0.0';
 
-  // const codepenPrefillConfig = {
-  //   title: `${localizedTitle} - antd@${dependencies.antd}`,
-  //   html,
-  //   js: `const { createRoot } = ReactDOM;\n${jsx
-  //     .replace(/import\s+(?:React,\s+)?{(\s+[^}]*\s+)}\s+from\s+'react'/, `const { $1 } = React;`)
-  //     .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'antd';/, 'const { $1 } = antd;')
-  //     .replace(/import\s+{(\s+[^}]*\s+)}\s+from\s+'@ant-design\/icons';/, 'const { $1 } = icons;')
-  //     .replace("import moment from 'moment';", '')
-  //     .replace("import React from 'react';", '')
-  //     .replace(/import\s+{\s+(.*)\s+}\s+from\s+'react-router';/, 'const { $1 } = ReactRouter;')
-  //     .replace(
-  //       /import\s+{\s+(.*)\s+}\s+from\s+'react-router-dom';/,
-  //       'const { $1 } = ReactRouterDOM;',
-  //     )
-  //     .replace(/([A-Za-z]*)\s+as\s+([A-Za-z]*)/, '$1:$2')
-  //     .replace(
-  //       /export default/,
-  //       'const ComponentDemo =',
-  //     )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-  //   editors: '001',
-  //   css: '',
-  //   js_external: [
-  //     'react@18/umd/react.development.js',
-  //     'react-dom@18/umd/react-dom.development.js',
-  //     'dayjs@1/dayjs.min.js',
-  //     `antd@${pkg.version}/dist/antd-with-locales.js`,
-  //     `@ant-design/icons/dist/index.umd.js`,
-  //     'react-router-dom/dist/umd/react-router-dom.production.min.js',
-  //     'react-router/dist/umd/react-router.production.min.js',
-  //   ]
-  //     .map((url) => `https://unpkg.com/${url}`)
-  //     .join(';'),
-  //   js_pre_processor: 'typescript',
-  // };
-
-  // const riddlePrefillConfig = {
-  //   title: `${localizedTitle} - antd@${dependencies.antd}`,
-  //   js: `${
-  //     /import React(\D*)from 'react';/.test(jsx) ? '' : `import React from 'react';\n`
-  //   }import { createRoot } from 'react-dom/client';\n${jsx.replace(
-  //     /export default/,
-  //     'const ComponentDemo =',
-  //   )}\n\ncreateRoot(mountNode).render(<ComponentDemo />);\n`,
-  //   css: '',
-  //   json: JSON.stringify({ name: 'antd-demo', dependencies }, null, 2),
-  // };
-
   // Reorder source code
   let parsedSourceCode = suffix === 'tsx' ? entryCode : jsx;
   let importReactContent = "import React from 'react';";
@@ -324,39 +240,6 @@ import Demo from './demo';
 createRoot(document.getElementById('container')).render(<Demo />);
   `;
 
-  // const codesandboxPackage = {
-  //   title: `${localizedTitle} - antd@${dependencies.antd}`,
-  //   main: 'index.js',
-  //   dependencies: {
-  //     ...dependencies,
-  //     react: '^18.0.0',
-  //     'react-dom': '^18.0.0',
-  //     'react-scripts': '^5.0.0',
-  //   },
-  //   devDependencies: {
-  //     typescript: '^5.0.2',
-  //   },
-  //   scripts: {
-  //     start: 'react-scripts start',
-  //     build: 'react-scripts build',
-  //     test: 'react-scripts test --env=jsdom',
-  //     eject: 'react-scripts eject',
-  //   },
-  //   browserslist: ['>0.2%', 'not dead'],
-  // };
-
-  // const codesanboxPrefillConfig = {
-  //   files: {
-  //     'package.json': { content: codesandboxPackage },
-  //     'index.css': { content: indexCssContent },
-  //     [`index.${suffix}`]: { content: indexJsContent },
-  //     [`demo.${suffix}`]: { content: demoJsContent },
-  //     'index.html': {
-  //       content: html,
-  //     },
-  //   },
-  // };
-
   const stackblitzPrefillConfig: Project = {
     title: `${localizedTitle} - antd@${dependencies.antd}`,
     template: 'create-react-app',
@@ -374,22 +257,22 @@ createRoot(document.getElementById('container')).render(<Demo />);
     stackblitzPrefillConfig.files['tsconfig.json'] = JSON.stringify(tsconfig, null, 2);
   }
 
-  // const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
+  const backgroundGrey = theme.includes('dark') ? '#303030' : '#f0f2f5';
 
-  // const codeBoxDemoStyle: React.CSSProperties = {
-  //   padding: iframe || compact ? 0 : undefined,
-  //   overflow: iframe || compact ? 'hidden' : undefined,
-  //   backgroundColor: background === 'grey' ? backgroundGrey : undefined,
-  // };
+  const codeBoxDemoStyle: React.CSSProperties = {
+    padding: iframe || compact ? 0 : undefined,
+    overflow: iframe || compact ? 'hidden' : undefined,
+    backgroundColor: background === 'grey' ? backgroundGrey : undefined,
+  };
 
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
-      {/* <section className="code-box-demo" style={codeBoxDemoStyle}>
+      <section className="code-box-demo" style={codeBoxDemoStyle}>
         <ErrorBoundary>
           <React.StrictMode>{liveDemo.current}</React.StrictMode>
         </ErrorBoundary>
         {style ? <style dangerouslySetInnerHTML={{ __html: style }} /> : null}
-      </section> */}
+      </section>
       <section className="code-box-meta markdown">
         <div className="code-box-title">
           <Tooltip title={originDebug ? <FormattedMessage id="app.demo.debug" /> : ''}>
@@ -397,91 +280,10 @@ createRoot(document.getElementById('container')).render(<Demo />);
               {localizedTitle}
             </a>
           </Tooltip>
-          {/* <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} /> */}
+          <EditButton title={<FormattedMessage id="app.content.edit-demo" />} filename={filename} />
         </div>
         <div className="code-box-description">{introChildren}</div>
         <Space wrap size="middle" className="code-box-actions">
-          {/* {showOnlineUrl && (
-            <Tooltip title={<FormattedMessage id="app.demo.online" />}>
-              <a
-                className="code-box-code-action"
-                target="_blank"
-                rel="noreferrer"
-                href={docsOnlineUrl}
-              >
-                <LinkOutlined className="code-box-online" />
-              </a>
-            </Tooltip>
-          )} */}
-          {/* {showRiddleButton ? (
-            <form
-              className="code-box-code-action"
-              action="//riddle.alibaba-inc.com/riddles/define"
-              method="POST"
-              target="_blank"
-              ref={riddleIconRef}
-              onClick={() => {
-                track({ type: 'riddle', demo: asset.id });
-                riddleIconRef.current?.submit();
-              }}
-            >
-              <input type="hidden" name="data" value={JSON.stringify(riddlePrefillConfig)} />
-              <Tooltip title={<FormattedMessage id="app.demo.riddle" />}>
-                <RiddleIcon className="code-box-riddle" />
-              </Tooltip>
-            </form>
-          ) : null} */}
-          {/* <form
-            className="code-box-code-action"
-            action="https://codesandbox.io/api/v1/sandboxes/define"
-            method="POST"
-            target="_blank"
-            ref={codeSandboxIconRef}
-            onClick={() => {
-              track({ type: 'codesandbox', demo: asset.id });
-              codeSandboxIconRef.current?.submit();
-            }}
-          >
-            <input
-              type="hidden"
-              name="parameters"
-              value={compress(JSON.stringify(codesanboxPrefillConfig))}
-            />
-            <Tooltip title={<FormattedMessage id="app.demo.codesandbox" />}>
-              <CodeSandboxIcon className="code-box-codesandbox" />
-            </Tooltip>
-          </form>
-          <form
-            className="code-box-code-action"
-            action="https://codepen.io/pen/define"
-            method="POST"
-            target="_blank"
-            ref={codepenIconRef}
-            onClick={() => {
-              track({ type: 'codepen', demo: asset.id });
-              codepenIconRef.current?.submit();
-            }}
-          >
-            <ClientOnly>
-              <input type="hidden" name="data" value={JSON.stringify(codepenPrefillConfig)} />
-            </ClientOnly>
-            <Tooltip title={<FormattedMessage id="app.demo.codepen" />}>
-              <CodePenIcon className="code-box-codepen" />
-            </Tooltip>
-          </form> */}
-          {/* <Tooltip title={<FormattedMessage id="app.demo.stackblitz" />}>
-            <span
-              className="code-box-code-action"
-              onClick={() => {
-                track({ type: 'stackblitz', demo: asset.id });
-                stackblitzSdk.openProject(stackblitzPrefillConfig, {
-                  openFile: [`demo.${suffix}`],
-                });
-              }}
-            >
-              <ThunderboltOutlined className="code-box-stackblitz" />
-            </span>
-          </Tooltip> */}
           <CopyToClipboard text={entryCode} onCopy={() => handleCodeCopied(asset.id)}>
             <Tooltip
               open={copyTooltipOpen as boolean}

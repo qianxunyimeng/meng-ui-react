@@ -57,6 +57,10 @@ if (process.env.RUN_ENV === 'PRODUCTION') {
         }),
       );
     }
+    config.output.library = 'MengUI';
+
+    console.log('==============');
+    console.log(config);
   });
 }
 

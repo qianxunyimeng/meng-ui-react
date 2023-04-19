@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { Space } from 'antd';
+import { Space } from 'meng-ui-react';
 import * as React from 'react';
 import useSiteToken from '../../../../hooks/useSiteToken';
 import useLocale from '../../../../hooks/useLocale';

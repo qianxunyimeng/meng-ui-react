@@ -10,13 +10,13 @@ import * as React from 'react';
 // import type { RequiredMark } from '../form/Form';
 // import type { Locale } from '../locale';
 // import LocaleProvider, { ANT_MARK } from '../locale';
-import warning from 'antd/es/_util/warning'
+// import warning from 'antd/es/_util/warning'
 // import type { LocaleContextProps } from '../locale/context';
 // import LocaleContext from '../locale/context';
 // import defaultLocale from '../locale/en_US';
 import { DesignTokenContext } from '../theme/internal';
 import defaultSeedToken from '../theme/themes/seed';
-// import warning from '../_util/warning';
+import warning from '../_util/warning';
 import type { ConfigConsumerProps, CSPConfig, DirectionType, Theme, ThemeConfig } from './context';
 import { ConfigConsumer, ConfigContext, defaultIconPrefixCls } from './context';
 import { registerTheme } from './cssVariables';
@@ -77,7 +77,7 @@ const PASSED_PROPS: Exclude<keyof ConfigConsumerProps, 'rootPrefixCls' | 'getPre
   'pageHeader',
   'input',
   'pagination',
- // 'form',
+  // 'form',
   'select',
 ];
 
@@ -125,11 +125,13 @@ interface ProviderChildrenProps extends ConfigProviderProps {
   // legacyLocale: Locale;
 }
 
-export const defaultPrefixCls = 'ant';
+export const defaultPrefixCls = 'mx';
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 
 function getGlobalPrefixCls() {
+  console.log('getGlobalPrefixCls======================', globalPrefixCls || defaultPrefixCls);
+
   return globalPrefixCls || defaultPrefixCls;
 }
 
@@ -177,13 +179,13 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     csp: customCsp,
     autoInsertSpaceInButton,
     // form,
-   // locale,
+    // locale,
     componentSize,
     direction,
     space,
     virtual,
     dropdownMatchSelectWidth,
-   // legacyLocale,
+    // legacyLocale,
     parentContext,
     iconPrefixCls: customIconPrefixCls,
     theme,

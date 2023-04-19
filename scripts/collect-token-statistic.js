@@ -4,12 +4,12 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 const fs = require('fs-extra');
 const ProgressBar = require('progress');
-const { statistic } =  require("antd/lib/theme/util/statistic")
-// const { statistic } = require('../components/theme/util/statistic');
-const { DesignTokenContext } = require("antd/lib/theme/internal")
-// const { DesignTokenContext } = require('../components/theme/internal');
-const seedToken = require("antd/lib/theme/themes/seed")
-// const seedToken = require('../components/theme/themes/seed');
+// const { statistic } =  require("antd/lib/theme/util/statistic")
+// const { DesignTokenContext } = require("antd/lib/theme/internal")
+const { statistic } = require('../components/theme/util/statistic');
+const { DesignTokenContext } = require('../components/theme/internal');
+// const seedToken = require("antd/lib/theme/themes/seed")
+const seedToken = require('../components/theme/themes/seed');
 const { generateCssinjs, filenames } = require('./generate-cssinjs');
 
 console.log(chalk.green(`🔥 Collecting token statistics...`));

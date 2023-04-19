@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-pascal-case */
 import React, { useContext } from 'react';
 import {
-  Space,
   Typography,
   Tour,
   Tag,
@@ -12,6 +11,7 @@ import {
   Progress,
   Carousel,
 } from 'antd';
+import { Space } from 'meng-ui-react';
 import dayjs from 'dayjs';
 import { CustomerServiceOutlined, QuestionCircleOutlined, SyncOutlined } from '@ant-design/icons';
 import { css } from '@emotion/react';

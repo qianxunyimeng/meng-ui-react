@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider } from 'meng-ui-react';
 import { useLocale as useDumiLocale } from 'dumi';
 import React from 'react';
 import useLocale from '../../hooks/useLocale';
@@ -38,7 +38,7 @@ const locales = {
 const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
   const { id: localeId } = useDumiLocale();
-  console.log(localeId)
+  console.log(localeId);
   const localeStr = localeId === 'zh-CN' ? 'cn' : 'en';
   const { image } = useStyle();
   const [siteData] = useSiteData();

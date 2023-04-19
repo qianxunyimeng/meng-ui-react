@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState, Suspense, useLayoutEffect } from 'react';
 import { enUS, ThemeEditor, zhCN } from 'antd-token-previewer';
 import { Button, ConfigProvider, message, Modal, Spin, Typography } from 'antd';
-import type { ThemeConfig } from 'antd/es/config-provider/context';
+import type { ThemeConfig } from 'meng-ui-react/es/config-provider/context';
 import { Helmet } from 'dumi';
 import { css } from '@emotion/react';
 import type { JSONContent, TextContent } from 'vanilla-jsoneditor';

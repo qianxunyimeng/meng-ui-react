@@ -1,7 +1,7 @@
 import type { ValidateMessages } from 'rc-field-form/lib/interface';
 import * as React from 'react';
-import warning from 'antd/es/_util/warning';
-// import warning from '../_util/warning';
+// import warning from 'antd/es/_util/warning';
+import warning from '../_util/warning';
 import type { TransferLocale as TransferLocaleForEmpty } from '../empty';
 import type { LocaleContextProps } from './context';
 import LocaleContext from './context';
@@ -22,7 +22,7 @@ export interface Locale {
   //Popconfirm?: PopconfirmLocale;
   //Transfer?: TransferLocale;
   //Select?: Record<string, any>;
- // Upload?: UploadLocale;
+  // Upload?: UploadLocale;
   Empty?: TransferLocaleForEmpty;
   global?: Record<string, any>;
   PageHeader?: { back: string };

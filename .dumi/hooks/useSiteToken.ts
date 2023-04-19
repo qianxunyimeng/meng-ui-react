@@ -1,6 +1,6 @@
-import { theme } from 'antd';
+import { theme } from 'meng-ui-react';
 import { useContext } from 'react';
-import { ConfigContext } from 'antd/es/config-provider';
+import { ConfigContext } from 'meng-ui-react/es/config-provider';
 
 const { useToken } = theme;
 

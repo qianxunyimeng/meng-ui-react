@@ -4,11 +4,11 @@ import { generate } from '@ant-design/colors';
 import { TinyColor } from '@ctrl/tinycolor';
 import canUseDom from 'rc-util/lib/Dom/canUseDom';
 import { updateCSS } from 'rc-util/lib/Dom/dynamicCSS';
-import warning from 'antd/es/_util/warning';
-// import warning from '../_util/warning';
+// import warning from 'antd/es/_util/warning';
+import warning from '../_util/warning';
 import type { Theme } from './context';
 
-const dynamicStyleMark = `-ant-${Date.now()}-${Math.random()}`;
+const dynamicStyleMark = `-mx-${Date.now()}-${Math.random()}`;
 
 export function getStyle(globalPrefixCls: string, theme: Theme) {
   const variables: Record<string, string> = {};

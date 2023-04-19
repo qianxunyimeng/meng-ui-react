@@ -1,5 +1,6 @@
 import { css } from '@emotion/react';
-import { Button, Space, Typography } from 'antd';
+import { Space, Typography } from 'antd';
+import { Button } from 'meng-ui-react';
 import { Link, useLocation } from 'dumi';
 import * as React from 'react';
 import useLocale from '../../../hooks/useLocale';

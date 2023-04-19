@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Space } from 'antd';
+import { Button, Space } from 'meng-ui-react';
 
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
